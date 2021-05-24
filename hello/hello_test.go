@@ -46,14 +46,9 @@ func TestHello(t *testing.T) {
 // You can put testable examples into your code. I think that this is meant
 // for documentation rather than test files, but maybe I’m wrong?
 func ExampleHello() {
-	fmt.Println("hello")
-	// Output: hello
-}
+	fmt.Println(Hello("Peter", "en"))
+	// Output: Hello, Peter!
 
-func ExampleSalutations() {
-	fmt.Println("hello, and")
-	fmt.Println("goodbye")
-	// Output:
-	// hello, and
-	// goodbye
+	fmt.Println(Hello("", "en"))
+	// Output: Hello, World!
 }
