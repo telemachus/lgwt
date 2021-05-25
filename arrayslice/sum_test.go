@@ -1,11 +1,32 @@
 package arrayslice
 
 import (
-	"reflect"
 	"testing"
 )
 
+func sameSliceInts(s1, s2 []int) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+
+	for i, n := range s1 {
+		if n != s2[i] {
+			return false
+		}
+	}
+
+	return true
+}
+
 func TestSum(t *testing.T) {
+	t.Run("an array of 2 ints", func(t *testing.T) {
+		ns := [2]int{1,3}
+		actual := Sum(ns[:]...)
+		expected := 4
+		if actual != expected {
+			t.Errorf("expected %d; actual %d; given %v", expected, actual, ns)
+		}
+	})
 	t.Run("slice of five ints", func(t *testing.T) {
 		ns := []int{1, 2, 3, 4, 5}
 		actual := Sum(ns...)
@@ -32,7 +53,7 @@ func TestSumAll(t *testing.T) {
 		expected := []int{3, 9}
 		actual := SumAll([]int{1, 2}, []int{0, 9})
 
-		if !reflect.DeepEqual(actual, expected) {
+		if !sameSliceInts(actual, expected) {
 			t.Errorf("expected %d; actual %d", expected, actual)
 		}
 	})
@@ -41,7 +62,7 @@ func TestSumAll(t *testing.T) {
 		expected := []int{0, 0}
 		actual := SumAll([]int{}, []int{0})
 
-		if !reflect.DeepEqual(actual, expected) {
+		if !sameSliceInts(actual, expected) {
 			t.Errorf("expected %d; actual %d", expected, actual)
 		}
 	})
@@ -50,7 +71,7 @@ func TestSumAll(t *testing.T) {
 		expected := []int{0}
 		actual := SumAll([]int{})
 
-		if !reflect.DeepEqual(actual, expected) {
+		if !sameSliceInts(actual, expected) {
 			t.Errorf("expected %d; actual %d", expected, actual)
 		}
 	})
@@ -59,7 +80,7 @@ func TestSumAll(t *testing.T) {
 		expected := []int{}
 		actual := SumAll()
 
-		if !reflect.DeepEqual(actual, expected) {
+		if !sameSliceInts(actual, expected) {
 			t.Errorf("expected %d; actual %d", expected, actual)
 		}
 	})
