@@ -18,3 +18,19 @@ func SumAll(nss ...[]int) []int {
 	}
 	return sums
 }
+
+func SumAllTails(nss ...[]int) []int {
+	l := len(nss)
+	sums := make([]int, l, l)
+
+	for i, ns := range nss {
+		l := len(ns)
+		switch l {
+		case 0:
+			sums[i] = 0
+		default:
+			sums[i] = Sum(ns[1:]...)
+		}
+	}
+	return sums
+}

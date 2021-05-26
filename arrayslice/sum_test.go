@@ -20,7 +20,7 @@ func sameSliceInts(s1, s2 []int) bool {
 
 func TestSum(t *testing.T) {
 	t.Run("an array of 2 ints", func(t *testing.T) {
-		ns := [2]int{1,3}
+		ns := [2]int{1, 3}
 		actual := Sum(ns[:]...)
 		expected := 4
 		if actual != expected {
@@ -79,6 +79,35 @@ func TestSumAll(t *testing.T) {
 	t.Run("nothing", func(t *testing.T) {
 		expected := []int{}
 		actual := SumAll()
+
+		if !sameSliceInts(actual, expected) {
+			t.Errorf("expected %d; actual %d", expected, actual)
+		}
+	})
+}
+
+func TestSumAllTails(t *testing.T) {
+	t.Run("two slices of three ints", func(t *testing.T) {
+		expected := []int{3, 9}
+		actual := SumAllTails([]int{10, 1, 2}, []int{10, 0, 9})
+
+		if !sameSliceInts(actual, expected) {
+			t.Errorf("expected %d; actual %d", expected, actual)
+		}
+	})
+
+	t.Run("three slices of one int", func(t *testing.T) {
+		expected := []int{0, 0, 0}
+		actual := SumAllTails([]int{10}, []int{1}, []int{200})
+
+		if !sameSliceInts(actual, expected) {
+			t.Errorf("expected %d; actual %d", expected, actual)
+		}
+	})
+
+	t.Run("four slices of various sizes", func(t *testing.T) {
+		expected := []int{3, 0, 200, 14}
+		actual := SumAllTails([]int{10, 2, 1}, []int{1}, []int{1, 200}, []int{1,2,3,4,5})
 
 		if !sameSliceInts(actual, expected) {
 			t.Errorf("expected %d; actual %d", expected, actual)
