@@ -102,7 +102,7 @@ func assertError(t testing.TB, actual, expected error) {
 	t.Helper()
 
 	if actual != expected {
-		t.Errorf("expected %q; actual %q", expected, actual)
+		t.Errorf("actual %q; expected %q", actual, expected)
 	}
 }
 
