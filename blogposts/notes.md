@@ -14,9 +14,9 @@ Thank you for giving me the preview: I enjoyed this a lot, and I think you do a 
 
 I’d remove the scare quotes around thin. Also, I don’t know what makes these slices vertical. Maybe there’s a metaphor or background I’m not familiar with. (Yup, I googled, and [there is](https://en.wikipedia.org/wiki/Vertical_slice). Maybe link to something or explain this for noobs like me?)
 
-> We should not trust our over-active imaginations when we start work. *You* could be
+> We should not trust our over-active imaginations when we start work. *You* could be…
 
-“We should not trust our over-active imaginations when we start work. *We* could be”
+“We should not trust our over-active imaginations when we start work. *We* could be…”
 
 ## [Thinking about the kind of test we want to see](https://github.com/quii/learn-go-with-tests/blob/fstest/reading-files.md#thinking-about-the-kind-of-test-we-want-to-see)
 
@@ -30,7 +30,7 @@ I’ve seen this naming convention in other Go code, but it’s not how you do t
 
 ### [Write the minimal amount of code for the test to run and check the failing test output](https://github.com/quii/learn-go-with-tests/blob/fstest/reading-files.md#write-the-minimal-amount-of-code-for-the-test-to-run-and-check-the-failing-test-output)
 
-I was surprised by the order of imports. The canonical style would put the local import last and after a skipped line, right? This is what `goimports` does in my case.
+I was surprised by the order of imports. The canonical style puts the local import last and after a skipped line, right? This is what `goimports` does in my case.
 
 ```go
 import (
@@ -44,7 +44,7 @@ import (
 
 ### [Write enough code to make it pass](https://github.com/quii/learn-go-with-tests/blob/fstest/reading-files.md#write-enough-code-to-make-it-pass)
 
-I was confused when you mentioned Denise. I tend to read the article at hand before following links. I suppose you’re assuming that most people will follow the link first, and that’s probably fine. But maybe introduce Denise with the link. E.g., “As Denise Yu explains, we could slime the…” On the other hand, I figured it out pretty quickly.
+I was confused when you mentioned Denise. I tend to read the article at hand before following links, and there’s no mention of Denise in your post itself. I suppose you’re assuming that most people will follow the link first, and that’s probably fine. But maybe introduce Denise with the link. E.g., “As Denise Yu explains, we could slime the…” On the other hand, I figured it out pretty quickly.
 
 > remember now our focus is *to make* the test pass, not changing design, so we'll ignore the error for now.
 
